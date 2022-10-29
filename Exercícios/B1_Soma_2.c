@@ -6,7 +6,7 @@ int main() {
     int soma;
     scanf("%d%d", &num1, &num2);
     soma = num1+num2;
-    printf("%d \n", soma);
+    printf("%d\n", soma);
     return 0;
 }
 
