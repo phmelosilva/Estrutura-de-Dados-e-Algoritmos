@@ -4,7 +4,7 @@
 int main() {
     int tem_marte=0;
     char buf[31];
-    while (scanf("%s", buf) == 1) {
+    while (scanf("%s", buf) != EOF) {
         if (strcmp(buf, "marte") == 0) {
            printf("Leonardo Cicero Marciano\n");
            tem_marte = 1;
