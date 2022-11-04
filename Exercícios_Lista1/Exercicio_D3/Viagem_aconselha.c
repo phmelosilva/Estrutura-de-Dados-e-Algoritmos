@@ -1,19 +1,26 @@
 #include <stdio.h>
 
 int main() {
-    int dia_viagem, R, Ri, i, codigo_atual, nota_atual, maior_nota, maior_codigo;
-    int i_restaurantes, codigos[10000000], notas[5];
+    int i, quantidade_restaurantes, dia_viagem = 1, codigo_restaurante_atual, restaurante_com_nota_atual, restaurante_com_maior_nota, codigo_restaurante_maior_nota;
     
-    while (scanf("%d", &R) != EOF) {
-        for (i=0; i < R*2; i++) {
-            scanf("%d %d", codigo_atual, nota_atual);
-            // Preciso pegar os códigos e notas atuais, e comparar eles em variáveis que compara as notas.
+    while (scanf("%d", &quantidade_restaurantes) != EOF) {
+        codigo_restaurante_atual = -1;
+        codigo_restaurante_maior_nota = -1;
+        restaurante_com_maior_nota = -1;
+        restaurante_com_nota_atual = -1;
+
+        for (i=0; i < quantidade_restaurantes; i++) {
+            scanf("%d %d", &codigo_restaurante_atual, &restaurante_com_nota_atual);
+            if (restaurante_com_nota_atual > restaurante_com_maior_nota) {
+                restaurante_com_maior_nota = restaurante_com_nota_atual;
+                codigo_restaurante_maior_nota = codigo_restaurante_atual;
+            } else if (codigo_restaurante_atual < codigo_restaurante_maior_nota && restaurante_com_nota_atual == restaurante_com_maior_nota) {
+                codigo_restaurante_maior_nota = codigo_restaurante_atual;
+            } 
+             // Preciso pegar os códigos e notas atuais, e comparar eles em variáveis que compara as notas.
         }
-        for (i=0; i < R*2; i++) {
-            if () {
-                
-            }
-        }
+        printf("Dia %d\n%d\n\n", dia_viagem, codigo_restaurante_maior_nota);
+        dia_viagem++;
     }
     return 0;
 }
