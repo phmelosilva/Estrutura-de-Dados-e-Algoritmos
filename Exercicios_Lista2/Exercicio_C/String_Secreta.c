@@ -1,18 +1,25 @@
 #include <stdio.h>
+#include <string.h> 
 
 int main() {
-    int num;
-//    while (scanf("%x", num) != EOF) {
-//         printf("%d", num);
-//     } 
-    while (scanf("%x", &num) != EOF) {
- 
-    }
-    scanf("%x", &num);
-    for
+    int i;
+    long num;
+    scanf("%lx", &num);
+    // 7F -> maior
+    // while ( != EOF) {
+        
+        // for (i=0; i <255; i++) {
+        //     if (num == i) {
+        //         printf("%c", i);
+        //     }
+        // }
+        // 61 + 6c + 4f
+        // A + L + O
+    
+    
     printf("%x\n", num);
     printf("%d\n", num);
-    printf("%c\n", num);
+    printf("%s\n", num);
 
     return 0;
 }
