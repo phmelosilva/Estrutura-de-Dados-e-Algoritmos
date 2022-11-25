@@ -2,50 +2,21 @@
 #include <string.h>
 
 int main() {
-    char[] cadeia;
+    char cadeia[101];
     scanf("%s", cadeia);
-    moveX(cadeia, 0);
+    moveX(&cadeia);
     return 0;
 }
-// Recebo a cadeia de caracteres e uma variável contadora
-char moveX(char[] chain, int i) {
-    i = 0;
-    int tamanho = strlen(chain);
-    if (strcmp(chain[i], "x") == 0) { //Verifica se o 1° char é x
-        chain[i]=NULL;
-        cadeia+x;
-        i++;
-        chain[tamanho] = "x"; 
-        moveX(chain[i], i); 
-    } else { 
-        moveX(chain[i+1], i+1);
+
+void moveX(char *chain) {
+    if (chain[0] == '\0') return;
+    if (chain[0] == 'x') {
+        moveX(&chain[1]);
+    } else {
+        printf("%c", chain[0]);
+        moveX(&chain[1]);
+        return;
     }
-    printf("%s", chain);
+
+    printf("%c", chain[0]);
 }
-
-// ********** ORIGINAL ********
-// Recebo a cadeia de caracteres e uma variável contadora
-// char moveX(char[] chain, int i) {
-//     i = 0;
-//     if (strcmp(chain[i], "x") == 0) { //Verifica se o 1° char é x
-//         i++;
-//         chain[i] = "x"; //Aloca o próximo índice com o char x.
-//         moveX(chain[i], i); //Testando o próximo índice.
-//     } else { // Se o char em questão não for x, ele pula pro pŕoximo índice com a função
-//         moveX(chain[i+1], i+1);
-//     }
-//     printf("%s", chain);
-// }
-
-// ******** TESTE **************
-// char moveX(char[]chain, int i) {
-//     i = 0;
-//     if (strcmp(*chain, "x") == 0) {
-//         i++;
-//         *(chain + i) = "x";
-//         moveX(*(chain+i), i);
-//     } else {
-//         moveX(*(chain+(i+1)), i+1);
-//     }
-//     printf("%s", *chain);
-// }
