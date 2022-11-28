@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 
 int main() {
     char cadeia[101];
@@ -17,6 +16,5 @@ void moveX(char *chain) {
         moveX(&chain[1]);
         return;
     }
-
     printf("%c", chain[0]);
 }
