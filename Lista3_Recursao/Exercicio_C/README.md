@@ -6,7 +6,7 @@ Sua tarefa é, dado um inteiro positivo N, determinar se ele é um múltiplo de 
 
 ## Entrada
 ---
-A entrada é um arquivo tal que cada linha contém um inteiro positivo. Uma linha contendo o número 0 indica o fim da entrada. Os números fornecidos na entrada possuem até 1000 dígitos. Saída
+A entrada é um arquivo tal que cada linha contém um inteiro positivo. Uma linha contendo o número 0 indica o fim da entrada. Os números fornecidos na entrada possuem até 1000 dígitos.
 
 ## Saida
 ---
