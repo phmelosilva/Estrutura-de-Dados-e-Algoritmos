@@ -12,4 +12,3 @@ void isc(char *s) {
     printf("%c", *s); // Imprimi o valor ao contrário porque os valores que ele pega quando volta da recursão, pega do último pro primeiro
                       // Por isso o isc() vindo antes do print imprime a palavra ao contrário.
 }
-

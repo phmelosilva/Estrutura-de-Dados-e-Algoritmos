@@ -18,4 +18,4 @@ No exemplo acima, o valor 23 é o último da subsequência 33 51 23, cuja soma �
 
 Note que você NÃO pode iniciar o processamento pelo fim do vetor v, pois, desta forma, o resultado seria diferente.
 
-Author: Marcos Castilho, I/O e mojificação por Bruno Ribas
+Author: Marcos Castilho, I/O e modificação por Bruno Ribas

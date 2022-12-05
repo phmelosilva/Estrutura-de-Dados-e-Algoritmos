@@ -53,7 +53,6 @@ int main() {
     } else {
         printf("%s is not a multiple of 9.\n", numero);
     }
-    
     return 0;
 }
 
