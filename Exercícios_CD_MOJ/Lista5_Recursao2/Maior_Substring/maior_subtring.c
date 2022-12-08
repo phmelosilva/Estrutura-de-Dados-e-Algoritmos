@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-
+// Função strstr() -> devolve um ponteiro com a 1° ocorrência da substring passada.
 int maior_substring(char *str, char *substr) {
         char *ponteiro;
         ponteiro = strstr(str, substr);
-        
 }
 
 int main() {
