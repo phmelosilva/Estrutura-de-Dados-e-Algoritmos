@@ -19,13 +19,18 @@ int maior_substring(char *str, char *substr) {
         printf("%s\n", first);
         char last[len];
         int tamanho_final = strlen(str);
-        int j = len-1;
-        for ( int i = tamanho_final; i > tamanho_final-len; i--) {
+        int j = 0;
+        for ( int i = strlen(str)-len; i = strlen(str); i++) {
             printf("%d\n", i);
-            last[j] = str[i-1];
-            printf("%c\n", last[j]);
-            j--;
+            last[j] = str[i];
+            j++;
         }
+        // for ( int i = tamanho_final; i > tamanho_final-len; i--) {
+        //     printf("%d\n", i);
+        //     last[j] = str[i-1];
+        //     printf("%c\n", last[j]);
+        //     j--;
+        // }
         printf("%s\n", last);
         // char last[101] = strncpy(str, str+len, strlen(str));
         if ((*first == *last) && (*last == *first)) 

@@ -1,32 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ultrapassa(int *vetor, int limite, int tamanho_vetor) {
-    // if (*vetor == 0) return;
-    // printf("%d", *vetor);
-    // ultrapassa(vetor+1);
-
+int ultrapassa(int *vetor, int limite, int tamanho_vetor, int soma) {
     // tentando com laços
-    int limite_funcao = limite;
-    int tamanho_v = tamanho_vetor;
-    int soma = 0;
-    for (int i = 0; i < tamanho_vetor; i++) {
-        if (vetor[i] != vetor[tamanho_vetor]) {
-            if (soma >= limite) {
-                printf("%d\n", vetor[i]);
-                ultrapassa(vetor+1, limite_funcao, tamanho_v);
-            } else {
-                soma += vetor[i];
-            }
-        } else {
-            return 0;
-        }
+    if (tamanho_vetor == 0) return 0;
+    soma += *vetor;
+    if (soma > limite) 
+    {
+        ultrapassa(vetor+1,limite, tamanho_vetor - 1, 0);
+        printf("%d\n", *vetor);
+        return 0;
     }
+    ultrapassa(vetor+1, limite, tamanho_vetor - 1,  soma);
+    return 0;
+
+    // for (int i = 0; i < tamanho_vetor; i++) {
+    //     soma += vetor[i];
+    //     if (vetor[i] == vetor[tamanho_vetor]) return 0;
+    //     if (soma >= limite) {
+    //         ultrapassa(vetor+1, limite_funcao, tamanho_v);
+    //         printf("%d\n", vetor[i]);
+    //         return;
+    //     } 
+    // }
 }
 
 int main() {
     int sequencia_v[1000], i = 0;
-    int limite;
+    int limite, soma = 0;
     // for (int i = 0; sequencia_v[i] == 0; i++) {
     //     scanf("%d", &sequencia_v[i]);
     // }
@@ -36,6 +37,6 @@ int main() {
         scanf("%d", &sequencia_v[++i]);
     }
     scanf("%d", &limite);
-    ultrapassa(sequencia_v, limite, i);
+    ultrapassa(sequencia_v, limite, i, soma);
     return 0;
 }
