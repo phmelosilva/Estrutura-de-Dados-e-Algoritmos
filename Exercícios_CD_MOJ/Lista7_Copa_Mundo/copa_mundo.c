@@ -17,11 +17,9 @@ int main() {
         //  if (i % 2 != 0) { //Faz com que não ocorra jogo da equipe B com a C, apenas entre as pares com as próximas ímpares
         //     continue;
         // }
-
     }
     for (int i = 0; i < 15; i++) {
         printf("%c\n", equipe_ganhou_jogo[i]);
     }
-
     return 0;
 }
