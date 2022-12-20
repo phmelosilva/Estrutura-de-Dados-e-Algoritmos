@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-// typedef int item;
-// #define key(A) (A) // key(A) (A.chave)
-// #define LESS(A,B) (key(A) < key(B))
-// //Troca a por b
-// #define EXCH(A,B) {item T = A; A = B; B = T;}
-// #define CMPEXCH(A, B) {if (less(A, B)) EXCH(A,B); }
+typedef int item;
+#define key(A) (A) // key(A) (A.chave)
+#define LESS(A,B) (key(A) < key(B))
+//Troca a por b
+#define EXCH(A,B) {item T = A; A = B; B = T;}
+#define CMPEXCH(A, B) {if (less(A, B)) EXCH(A,B); }
 
 #define LESS(A,B) (A < B)
 //Troca a por b
