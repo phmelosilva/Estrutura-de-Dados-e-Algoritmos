@@ -11,56 +11,60 @@ typedef int Item;
     }
 #define CMPEXCH(A, B)   \
     {                   \
-        if (LESS(A, B)) \
+        if (LESS(B, A)) \
             EXCH(A, B); \
     }
 
+Item separa(Item *v, int size)
+{
+    int l = -1, r = size - 1;
+    Item p = v[r];
+    
+    for (;;)
+    {
+        while (LESS(v[++l], p));
+        while (LESS(p, v[--r]) && r > l); 
+        if (l >= r)
+            break;
+        EXCH(v[l], v[r]);
+    }
+    EXCH(v[l], v[size - 1]);
+    return l;
+}
+
+void quicksort(Item *v, int size)
+{
+    if (size < 2) 
+        return;
+
+    EXCH(v[(size - 1)/2], v[size-2]);
+    CMPEXCH(v[0], v[size-2]);
+    CMPEXCH(v[0], v[size-1]);
+    CMPEXCH(v[size-2], v[size-1]);
+
+    int j = separa(v, size - 1);
+    quicksort(v, j);
+    quicksort(v + j + 1, size - j - 1);
+}
+
 int main() {
     int n;
+    Item *vetor;
     scanf("%d", &n);
-    int nums[n];
+    vetor = malloc(sizeof(Item)*n);
     
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &nums[i]);
+        scanf("%d", &vetor[i]);
     }
 
-    quicksortM3(nums, 0, n-1);
+    quicksort(vetor, n);
 
     for (int j = 0; j < n; j++)
     {
-        printf("%d ", nums[j]);
+        printf("%d ", vetor[j]);
     }
+    printf("\n");
 
     return 0;
-}
-
-Item separa(Item *v, int l, int r)
-{
-    int p = v[r];
-    int i = l-1;
-    int j = r;
-
-    for ( ; ; )
-    {
-        while (LESS(v[++i], p));
-        while (LESS(p, v[--j])) if (j == l) break;
-        if (i >= j) break;
-        EXCH(v[i], v[j]);
-    }
-    EXCH(v[i], v[r]);
-    return i;
-}
-
-void quicksortM3(Item *v, int l, int r)
-{
-    if (r <= l) return;
-
-    CMPEXCH(v[(l+r)/2], v[r]);
-    CMPEXCH(v[l], v[(l+r)/2]);
-    CMPEXCH(v[r], v[(l+r)/2]);
-
-    int j = separa(v, l, r);
-    quicksortM3(v, l, j-1);
-    quicksortM3(v,j+1, r);
 }
