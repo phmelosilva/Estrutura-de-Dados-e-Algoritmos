@@ -1,3 +1,4 @@
+// Arquivo com uma questão da 1° prova de EDA
 #include <stdio.h>
 
 int balanceada(int *vetor, int inicio, int fim) {
