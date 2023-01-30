@@ -1,5 +1,5 @@
 # Botas perdidas
-A divisão de Suprimentos de Botas e Calçãdos do Exército comprou um grande número de
+A divisão de Suprimentos de Botas e Calçados do Exército comprou um grande número de
 pares de botas de vários tamanhos para seus soldados. No entanto, por uma falha de
 empacotamento da fábrica contratada, nem todas as caixas entregues continham um par de
 botas correto, com duas botas do mesmo tamanho, uma para cada pé. O sargento mandou que
@@ -13,7 +13,7 @@ entregue, determina quantos pares corretos de botas poderão ser formados no tot
 ---
 A entrada é composta por diversos casos de teste. A primeira linha de um caso de teste contém
 um inteiro N indicando o número de botas individuais entregues. Cada uma das N linhas
-seguintes descreve uma bota, contendo um número inteiro Me uma letra L, separados por uma
+seguintes descreve uma bota, contendo um número inteiro M e uma letra L, separados por um
 espaço em branco. M indica o número da bota e L indica o pé da bota: L = 'D' indica que a bota é
 para o pé direito, L = 'E' indica que a bota é para o pé esquerdo.
 ## Saída
