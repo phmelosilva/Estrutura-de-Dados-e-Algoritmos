@@ -41,4 +41,7 @@ case.
 ---
 The sample input reflects the following situation:
 
-Ver imagem no site
+ <img src="assets/foto1.png">
+ The five trucks can be re-ordered in the following way:
+<img src="assets/foto2.png">
+<img src="assets/foto3.png">

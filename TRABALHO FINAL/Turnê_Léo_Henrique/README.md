@@ -45,11 +45,11 @@ A saída é composta por múltiplas linhas contento a ordem dos shows nas cidade
 
 ### Saída para o exemplo de entrada acima
 ---
-Brasilia
-IlhaSolteira
-SaoPaulo
-Americana
-OuroPreto
+    Brasilia
+    IlhaSolteira
+    SaoPaulo
+    Americana
+    OuroPreto
 
 ### Exemplo de Entrada
 ---

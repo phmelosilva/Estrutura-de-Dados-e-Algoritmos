@@ -12,12 +12,14 @@ A entrada é composta por um único caso de teste. O caso de teste possui divers
 10⁵
 linhas. Também é sabido que o tamanho de todas as strings da entrada tem no máximo 2²² caracteres. A entrada
 termina com fim de arquivo EOF.
-Saída
+
+## Saída
+---
 A saída é composta por diversas linhas, cada linha da saída deverá conter quantas vezes a última string aparece em cada
 uma das strings lidas.
 
 ## Exemplos
-
+---
 ### Exemplo de entrada
 ---
         internet
@@ -29,16 +31,17 @@ uma das strings lidas.
         dos
         conformes
         me
+
 ### Saída para o exemplo de entrada acima
 ---
-0
-0
-1
-0
-1
-0
-0
-1
+    0
+    0
+    1
+    0
+    1
+    0
+    0
+    1
 ### Exemplo de entrada
 ---
     alegria
@@ -82,5 +85,4 @@ uma das strings lidas.
     0
     0
     
-\textit{\rightline{Author: Bruno Ribas }}
-2
+Author: Bruno Ribas

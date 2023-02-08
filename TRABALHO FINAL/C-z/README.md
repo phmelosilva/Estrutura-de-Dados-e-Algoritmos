@@ -44,5 +44,4 @@ Observe o exemplo abaixo.
     Mas ai, de
     em que tudo era muito legal.
     
-\textit{\rightline{Author: John L. Gardenghi }}
-1
+Author: John L. Gardenghi 

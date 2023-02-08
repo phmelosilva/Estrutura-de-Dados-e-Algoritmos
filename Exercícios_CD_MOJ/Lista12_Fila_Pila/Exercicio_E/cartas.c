@@ -28,6 +28,16 @@ int pop(struct pilha *p) {
   return x;
 }
 
+
+void troca_topo(struct pilha *p) {
+  struct node *topo = p->inicio->e;
+  p->inicio->e = topo->prox;
+  while (p->inicio->prox != NULL)
+  {
+    
+  }
+}
+
 int main() {
   int n, i, x;
   struct pilha *p1 = (struct pilha *) malloc(sizeof(struct pilha));

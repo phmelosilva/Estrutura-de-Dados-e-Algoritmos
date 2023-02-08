@@ -18,10 +18,13 @@ segunda e quarta não estão.
 
 Um texto que começa em negrito e possui um texto em itálico dentro deverá finalizar o itálico antes de fechar o negrito,
 ao contrário do que a Segunda cadeia faz, e por isso ela está errada.
-* [Primeira cadeia] - O Rio *Tocantins* é um belo _rio_.
-* [Segunda cadeia] - Isso *aqui _nao pode estar* certo_.
-* [Terceira cadeia] - No _carnaval_ do /Rio de *Janeiro*/ sempre torço para a *_/Imperatriz/_*
-* [Quarta cadeia] - As coisas começam a ficar */_confusas/_*
+* [Primeira cadeia] - O Rio \*Tocantins\* é um belo _rio_.
+
+* [Segunda cadeia] - Isso \*aqui _nao pode estar\* certo_.
+
+* [Terceira cadeia] - No _carnaval_ do /Rio de \*Janeiro\*/ sempre torço para a \*_/Imperatriz/_\*
+
+* [Quarta cadeia] - As coisas começam a ficar \*/_confusas/_\*
 
 Douglas está em uma fase delicada de seu projeto e precisa que o sistema valide o texto que foi adicionado por um usuário.
 Parece que seus usuários não se atentam muito aos detalhes das configurações, gerando até entradas como a Segunda
@@ -73,6 +76,5 @@ estiver errado.
 ---
     C
     
-\
-rightlineAuthor: Bruno Ribas
+Author: Bruno Ribas
 2
