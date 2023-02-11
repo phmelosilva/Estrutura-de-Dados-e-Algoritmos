@@ -1,7 +1,4 @@
 # Mais um parser Wikipédico
-
-Bruno Ribas
-
 ## Preâmbulo
 ---
 Douglas, um jovem aluno que vive às margens do Rio Tocantins, começou a implementar um novo sistema de Wiki, com a

@@ -22,15 +22,15 @@ uma das strings lidas.
 ---
 ### Exemplo de entrada
 ---
-        internet
-        novidade
-        absurdamente
-        articulada
-        compulsoriamente
-        dentro
-        dos
-        conformes
-        me
+    internet
+    novidade
+    absurdamente
+    articulada
+    compulsoriamente
+    dentro
+    dos
+    conformes
+    me
 
 ### Saída para o exemplo de entrada acima
 ---

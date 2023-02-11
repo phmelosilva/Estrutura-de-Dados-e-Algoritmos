@@ -1,5 +1,4 @@
 # Menores Placas
-Bruno Ribas
 
 ## Preâmbulo
 ---
@@ -93,4 +92,3 @@ placas identificadas pela família até o momento.
     4 5
 
 Author: Bruno Ribas
-2

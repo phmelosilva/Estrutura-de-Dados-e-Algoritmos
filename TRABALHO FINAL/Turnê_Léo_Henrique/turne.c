@@ -1,152 +1,97 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define Item_t int
+#include <string.h>
 
-typedef struct double_linked_list_node
+typedef struct no {
+    char string[27];
+    int tamanho;
+    struct no *proximo;
+    struct no *anterior;
+} no;
+
+typedef struct lista {
+    no *inicio;
+    no *fim;
+} lista;
+
+void inicializaLista(lista *l) {
+    l->inicio = NULL;
+    l->fim = NULL;
+}
+
+// void insereInicio(lista *l, char *valor) {
+//     no *novo = malloc(sizeof(no));
+//     strcpy(novo->string, valor);
+//     novo->proximo = l->inicio;
+//     novo->anterior = NULL;
+
+//     if (l->inicio != NULL) {
+//         l->inicio->anterior = novo;
+//     }
+
+//     l->inicio = novo;
+
+//     if (l->fim == NULL) {
+//         l->fim = novo;
+//     }
+// }
+
+void insereFim(lista *l, char *valor) {
+    no *novo = malloc(sizeof(no));
+    strcpy(novo->string, valor);
+    novo->tamanho = strlen(novo->string);
+    novo->proximo = NULL;
+    novo->anterior = l->fim;
+
+    if (l->fim != NULL) {
+        l->fim->proximo = novo;
+    }
+
+    l->fim = novo;
+
+    if (l->inicio == NULL) {
+        l->inicio = novo;
+    }
+}
+
+
+int main() 
 {
-    Item_t item;
-    struct double_linked_list_node *next;
-    struct double_linked_list_node *previous;
-} double_linked_list_node;
+    lista *cidades = malloc(sizeof(lista));
+    inicializaLista(cidades);
 
-typedef struct double_linked_list
-{ 
-    double_linked_list_node *first;
-    double_linked_list_node *last;
+    char cidade[27];
+    while (scanf("%s", cidade) != EOF)
+    {
+        insereFim(cidades, cidade);
+    }
+    printf("\n");
+    no *atual = cidades->inicio;
+    while (atual != NULL)
+    {
+        if (atual->proximo == NULL)
+        {
+            printf("%s\n", atual->string);
+            break;
+        }
+        int len1 = atual->tamanho;
+        char ultimoCaractere[2];
+        ultimoCaractere[0] = atual->string[atual->tamanho - 1];
+        ultimoCaractere[1] = '\0';
+
+        char primeiroCaractere[2];
+        primeiroCaractere[0] = atual->proximo->string[0];
+        primeiroCaractere[1] = '\0';
     
-    int size;
+        if (atual->proximo != NULL && strcasecmp(ultimoCaractere, primeiroCaractere) == 0)
+        {
+            insereFim(cidades, atual->proximo->string);
+            atual->proximo = atual->proximo->proximo;
+            continue;
+        }
 
-    char (*empty)(struct double_linked_list*);
-    void (*push_back)(struct double_linked_list*, Item_t x);
-    void (*push_front)(struct double_linked_list*, Item_t x);
-    void (*pop_back)(struct double_linked_list*);
-    void (*pop_front)(struct double_linked_list*);
-    Item_t (*back)(struct double_linked_list*);
-    Item_t (*front)(struct double_linked_list*);
-
-} double_linked_list;
-
-// prototypes.
-void double_linked_list_node_constructor(double_linked_list_node *new);
-
-double_linked_list double_linked_list_constructor();
-char double_linked_list_empty(double_linked_list *dll);
-void double_linked_list_push_back(double_linked_list *dll, Item_t x);
-void double_linked_list_push_front(double_linked_list *dll, Item_t x);
-void double_linked_list_pop_back(double_linked_list *dll);
-void double_linked_list_pop_front(double_linked_list *dll);
-Item_t double_linked_back(double_linked_list *dll);
-Item_t double_linked_front(double_linked_list *dll);
-
-int main()
-{
-}
-void double_linked_list_node_constructor(double_linked_list_node *new)
-{
-    new->next = NULL;
-    new->previous = NULL;
-};
-
-char double_linked_list_empty(double_linked_list *dll)
-{
-    return dll->size == 0;
-}
-
-void double_linked_list_push_back(double_linked_list *dll, Item_t x)
-{
-    double_linked_list_node *new = malloc(sizeof(double_linked_list_node));
-    new->next = 0;
-    new->item = x;
-
-    if (dll->size == 0)
-    {
-        dll->first = new;
-        dll->last = new;
-        new->previous = NULL;
+        printf("%s\n", atual->string);
+        atual = atual->proximo;
     }
-    else
-    {
-        dll->last->next = new;
-        new->previous - dll->last;
-        dll->last - new;
-    }
-
-    dll->size++;
-}
-
-void double_linked_list_push_front(double_linked_list *dll, Item_t x)
-{
-    double_linked_list_node *new = malloc(sizeof(double_linked_list_node));
-    new->previous = NULL;
-    new->item = x;
-
-    if(dll->size == 0)
-    {
-        dll->first = new;
-        dll->last = new;
-    }
-    else
-    {
-        dll->first->previous = new;
-        new->next = dll->first;
-        dll->first = new;
-    }
-
-    dll->size++;
-}
-
-void double_linked_list_pop_back(double_linked_list *dll)
-{
-    double_linked_list_node *tmp = dll->last;
-
-    dll->last = dll->last->previous;
-
-    if (dll->last != NULL)
-        dll->last->next = NULL;
-    else
-        dll->first = NULL;
-    
-    dll->size--;
-
-    free(tmp);
-}
-
-void double_linked_list_pop_front(double_linked_list *dll)
-{
-    double_linked_list_node *tmp = dll->first; 
-
-    dll->first = dll->first->next;
-
-    if (dll->first == NULL)
-        dll->last = NULL;
-
-    dll->size--;
-
-    free(tmp);
-}
-Item_t double_linked_list_back(double_linked_list* dll)
-{
-    return dll->last->item;
-}
-Item_t double_linked_list_front(double_linked_list* dll)
-{
-    return dll->first->item;
-}
-double_linked_list double_linked_list_constructor()
-{
-    double_linked_list new;
-
-    double_linked_list_node_constructor(new.first);
-    double_linked_list_node_constructor(new.last);
-
-    new.size = 0;
-    new.empty = double_linked_list_empty; 
-    new.push_back = double_linked_list_push_back;
-    new.push_front = double_linked_list_push_front;
-    new.pop_back = double_linked_list_pop_back;
-    new.pop_front = double_linked_list_pop_front;
-    new.front = double_linked_list_front;
-    new.back = double_linked_list_back;
-
-    return new;
+    return 0;
 }

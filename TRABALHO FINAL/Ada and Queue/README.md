@@ -3,6 +3,7 @@
 Ada the Ladybug has many things to do. She puts them into her queue. Anyway she is very
 indecisive, so sometime she uses the top, sometime the back and sometime she decides to
 reverses it.
+
 ## Input
 ---
 The first line consists of 1 ≤ Q ≤ 10⁶

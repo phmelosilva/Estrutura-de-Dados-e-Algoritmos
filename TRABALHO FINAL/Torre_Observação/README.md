@@ -126,5 +126,4 @@ não sendo visíveis, bem como as áreas em que ficam as torres.
     ..t.......
     #...######
 
-\textit{\rightline{Author: Bruno Ribas }}
-3
+Author: Bruno Ribas
