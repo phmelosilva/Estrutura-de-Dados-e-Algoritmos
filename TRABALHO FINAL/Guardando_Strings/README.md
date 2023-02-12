@@ -54,7 +54,6 @@ uma das strings lidas.
     motivos
     obscuros
     A
-    1
 ### Saída para o exemplo de entrada acima
 ---
     0

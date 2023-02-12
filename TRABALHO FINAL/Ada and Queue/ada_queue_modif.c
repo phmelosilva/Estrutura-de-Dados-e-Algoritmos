@@ -85,7 +85,7 @@ int removeUltimo(lista *h) {
 
 int main() {
     int queries, valor, controle_rev = 0;
-    char comando[15];
+    char comando[10];
     int resultado[1000000], contador = 0;
     lista *queue = malloc(sizeof(lista));
     inicializaLista(queue);
@@ -160,8 +160,9 @@ int main() {
             }
             // printf("%d\n", valor);
         }
+        getchar();
     }
-
+    printf("-----------\n");
     for (int i = 0; i < contador; i++)
     {
         if (resultado[i] != -1)
@@ -171,5 +172,5 @@ int main() {
             printf("No job for Ada?\n");
         }
     }
-        return 0;
+    return 0;
 }

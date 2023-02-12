@@ -54,3 +54,48 @@ instead.
     80
     53
     66
+## Example Input:
+---
+    10
+    push_back 10
+    push_back 20
+    front
+    front
+    reverse
+    toFront 30
+    front
+    front
+    reverse
+    back
+## Example Output:
+---
+    10
+    20
+    30
+    No job for Ada?
+    No job for Ada?
+
+## Example Input:
+---
+    12
+    push_back 50
+    toFront 60
+    front
+    front
+    push_back 70
+    push_back 80
+    reverse
+    front
+    front
+    reverse
+    back
+    back
+
+## Example Output:
+---
+    60
+    50
+    80
+    70
+    No job for Ada?
+    No job for Ada?

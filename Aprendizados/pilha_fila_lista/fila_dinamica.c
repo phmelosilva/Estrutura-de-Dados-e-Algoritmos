@@ -11,6 +11,11 @@ typedef struct Fila {
     struct No *fim;
 } Fila;
 
+void inicializaFila(Fila *fila) {
+    fila->inicio = NULL;
+    fila->fim = NULL;
+}
+
 void enfila(Fila *fila, int valor) {
     No *novoNo = malloc(sizeof(struct No));
     novoNo->valor = valor;

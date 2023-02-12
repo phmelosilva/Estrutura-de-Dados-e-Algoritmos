@@ -1,113 +1,96 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define Item char
 #define MAX_STR_LEN (1 << 22)
-
-typedef struct no {
-    Item str[MAX_STR_LEN];
+typedef struct No {
+    char *str;
     int count;
-    struct no *proximo;
-    struct no *anterior;
-} no;
+    struct No *proximo;
+} No;
 
-typedef struct lista {
-    no *inicio;
-    no *fim;
-	int size;
-} lista;
+typedef struct Fila {
+    struct No *inicio;
+    struct No *fim;
+} Fila;
 
-void inicializaLista(lista *l) {
-    l->inicio = NULL;
-    l->fim = NULL;
-	l->size = 0;
+void inicializaFila(Fila *fila) {
+    fila->inicio = NULL;
+    fila->fim = NULL;
 }
 
-void insereInicio(lista *l, char *valor) {
-    no *novo = malloc(sizeof(no));
-    strcpy(novo->str, valor);
-    novo->proximo = l->inicio;
-    novo->anterior = NULL;
+void enfila(Fila *fila, char *valor, int tamanho) {
+    No *novoNo = malloc(sizeof(struct No));
+    novoNo->str = (char *)malloc(tamanho + 1);
+    strcpy(novoNo->str, valor);
+    novoNo->proximo = NULL;
 
-    if (l->inicio != NULL) {
-        l->inicio->anterior = novo;
+    if (fila->fim != NULL) {
+        fila->fim->proximo = novoNo;
     }
+    fila->fim = novoNo;
 
-    l->inicio = novo;
-
-    if (l->fim == NULL) {
-        l->fim = novo;
+    if (fila->inicio == NULL) {
+        fila->inicio = novoNo;
     }
 }
 
-void insereFim(lista *l, char *valor) {
-    no *novo = malloc(sizeof(no));
-    strcpy(novo->str, valor);
-    novo->proximo = NULL;
-    novo->anterior = l->fim;
-
-    if (l->fim != NULL) {
-        l->fim->proximo = novo;
+void desenfila(Fila *fila) {
+    if (fila->inicio == NULL) {
+        return;
     }
 
-    l->fim = novo;
+    No *noRemovido = fila->inicio;
+    fila->inicio = fila->inicio->proximo;
 
-    if (l->inicio == NULL) {
-        l->inicio = novo;
+    if (fila->inicio == NULL) {
+        fila->fim = NULL;
     }
+
+    free(noRemovido);
 }
 
-
-void printCount(lista *strings, char *string)
+char *espia(Fila *fila) 
 {
-	no *tmp = strings->inicio;
-	while (tmp->proximo != NULL)
-	{
-		if (strstr(tmp->str, string) != NULL)
-		{
-			tmp->count++;
-		}
-		tmp = tmp->proximo;
-	}
-	printf("%d\n", tmp->count);
+    return fila->inicio->str;
 }
+
+int countSubstring(char *string, char *substring)
+    {
+        int count = 0;
+        char *p = string;
+        size_t substringLength = strlen(substring);
+
+        while ((p = strstr(p, substring)) != NULL) 
+        {
+            ++count;
+            p += substringLength;
+        }
+
+        return count;
+    }
 
 int main() {
-	char string[MAX_STR_LEN];
-	char *ponteiro;
-	lista *strings = malloc(sizeof(lista));
-	inicializaLista(strings);
+    char string[4194304 + 1];
+    int tamanho;
+    Fila *strings = malloc(sizeof(Fila));
+    inicializaFila(strings);
+    
+    int i = 0;
 
-	while (scanf("%s", string) != EOF)
+    while (scanf("%s%n%*c", string, &tamanho) != EOF)
 	{
-		insereInicio(strings, string);
-	}
+		enfila(strings, string, tamanho);
+        i++;
+    }
 
-	no *percorre = strings->fim;
-	
-	// printf("%s\n", strings->inicio->str);
-	printf("---------\n");
-	while (percorre != NULL)
-	{
-		// ponteiro = strstr(percorre->str, strings->inicio->str);
-		// if (ponteiro)
-		// {
-		// 	percorre->count++;
-		// }	
+    char *ultimo = strings->fim->str;
+    char *atual;
 
-		// printf("%d", percorre->count);
-		printf("%s\n", percorre->str);
-		percorre = percorre->anterior;
-		// printCount(strings, percorre->str);
-	}
-  
-
-  // Verificando se está armazenando as strings
-  //   while (temporario != NULL)
-  //   {
-  // 	printf("%s\n", temporario->str);
-  // 	temporario = temporario->next;
-  //   }
-
-  return 0;
+    for (int j = i; j > 1; j--) {
+        atual = espia(strings);
+        strings->inicio->count = countSubstring(atual, ultimo);
+        printf("%d\n", strings->inicio->count);
+        desenfila(strings);
+    }
+    return 0;
 }

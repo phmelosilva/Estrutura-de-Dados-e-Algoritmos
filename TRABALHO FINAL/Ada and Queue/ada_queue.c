@@ -33,9 +33,9 @@ void insereInicio(lista *l, int valor) {
     }
     else
     {
-        l->inicio->proximo = novo;
-        novo->anterior = l->fim;
-        l->fim = novo;
+        l->inicio->anterior = novo;
+        novo->proximo = l->inicio;
+        l->inicio = novo;
     }
     
     l->size++;
@@ -54,9 +54,9 @@ void insereFim(lista *l, int valor) {
     }
     else
     {
-        l->inicio->anterior = novo;
-        novo->proximo = l->inicio;
-        l->inicio = novo;
+        l->fim->proximo = novo;
+        novo->anterior = l->fim;
+        l->fim = novo;
     }
 
     l->size++;
@@ -69,7 +69,6 @@ void removeInicio(lista *l) {
     if (l->inicio == NULL)
         l->fim = NULL;
 
-    // int ret = tmp->valor;
     l->size--;
 
     free(tmp);
@@ -138,11 +137,9 @@ int main() {
             {
                 valor = queue->inicio->valor;
                 removeInicio(queue);
-                // valor = removeInicio(queue);
             } else {
                 valor = queue->fim->valor;
                 removeUltimo(queue);
-                // valor = removeUltimo(queue);
             }
             printf("%d\n", valor);
 
@@ -152,11 +149,9 @@ int main() {
             {
                 valor = queue->fim->valor;
                 removeUltimo(queue);
-                // valor = removeUltimo(queue);
             } else {
                 valor = queue->inicio->valor;
                 removeInicio(queue);
-                // valor = removeInicio(queue);
             }
             printf("%d\n", valor);
         }

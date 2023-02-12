@@ -37,11 +37,31 @@ case.
 ---
     yes
 
+### Sample input:
+---
+
+    5
+    4 1 5 3 2
+    0
+### Sample output:
+---
+    no
+
+### Sample input:
+---
+
+    5
+    3 5 1 4 2
+    0
+### Sample output:
+---
+    no
 ## Illustration
 ---
 The sample input reflects the following situation:
 
  <img src="assets/foto1.png">
+ 
  The five trucks can be re-ordered in the following way:
 <img src="assets/foto2.png">
 <img src="assets/foto3.png">
