@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 typedef struct no {
     char string[27];
@@ -19,27 +20,12 @@ void inicializaLista(lista *l) {
     l->fim = NULL;
 }
 
-// void insereInicio(lista *l, char *valor) {
-//     no *novo = malloc(sizeof(no));
-//     strcpy(novo->string, valor);
-//     novo->proximo = l->inicio;
-//     novo->anterior = NULL;
-
-//     if (l->inicio != NULL) {
-//         l->inicio->anterior = novo;
-//     }
-
-//     l->inicio = novo;
-
-//     if (l->fim == NULL) {
-//         l->fim = novo;
-//     }
-// }
-
-void insereFim(lista *l, char *valor) {
+void insereFim(lista *l, char *valor, int tam) {
     no *novo = malloc(sizeof(no));
+    
     strcpy(novo->string, valor);
-    novo->tamanho = strlen(novo->string);
+
+    novo->tamanho = tam;
     novo->proximo = NULL;
     novo->anterior = l->fim;
 
@@ -47,25 +33,26 @@ void insereFim(lista *l, char *valor) {
         l->fim->proximo = novo;
     }
 
-    l->fim = novo;
 
-    if (l->inicio == NULL) {
+    if (l->inicio == NULL && l->fim == NULL) {
         l->inicio = novo;
     }
-}
 
+    l->fim = novo;
+}
 
 int main() 
 {
+    int tam;
     lista *cidades = malloc(sizeof(lista));
     inicializaLista(cidades);
 
     char cidade[27];
     while (scanf("%s", cidade) != EOF)
     {
-        insereFim(cidades, cidade);
+        tam = strlen(cidade);
+        insereFim(cidades, cidade, tam);
     }
-    printf("\n");
     no *atual = cidades->inicio;
     while (atual != NULL)
     {
@@ -75,19 +62,18 @@ int main()
             break;
         }
         int len1 = atual->tamanho;
-        char ultimoCaractere[2];
-        ultimoCaractere[0] = atual->string[atual->tamanho - 1];
-        ultimoCaractere[1] = '\0';
+        char ultimoCaractere;
 
-        char primeiroCaractere[2];
-        primeiroCaractere[0] = atual->proximo->string[0];
-        primeiroCaractere[1] = '\0';
+        ultimoCaractere = atual->string[atual->tamanho - 1];
+
+        char primeiroCaractere;
+        primeiroCaractere = atual->proximo->string[0];
     
-        if (atual->proximo != NULL && strcasecmp(ultimoCaractere, primeiroCaractere) == 0)
+        if( tolower(ultimoCaractere) == tolower(primeiroCaractere) )
         {
-            insereFim(cidades, atual->proximo->string);
+            insereFim(cidades, atual->proximo->string, atual->proximo->tamanho);
+
             atual->proximo = atual->proximo->proximo;
-            continue;
         }
 
         printf("%s\n", atual->string);
