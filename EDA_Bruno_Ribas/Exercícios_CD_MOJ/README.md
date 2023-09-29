@@ -1,0 +1,2 @@
+# Exercícios CD_MOJ
+Nesta pasta pode ser encontrado os exercícios referente ao MOJ que foram feitos durante a disciplina de Estrutura de Dados e Algoritmos no meu 4° Semestre do curso de Engenharia de Software na UnB - FGA. Porém, nem todos os exercícios foram resolvidos, o que significa que aqui está presente códigos que deram certo para serem entregues, assim como códigos incompletos ou que estão errados e que eu não consegui trabalhar em cima.

@@ -1,0 +1,2 @@
+# Trabalho Final
+Nesta pasta pode ser encontrado os exercícios referente ao Trabalho Final da disciplina de Estrutura de Dados e Algoritmos que realizei durante o meu 4° Semestre do curso de Engenharia de Software na UnB - FGA. Porém, nem todos os exercícios foram resolvidos, até porque não havia necessidade de se fazer todos para a minha ocasião em específico. Mas, acabei passando os enunciados até dos exercícios os quais não resolvi.

@@ -1,4 +1,4 @@
-# Estrutura de Dados e Algoritmos 
-## Repositório voltado para a disciplina de Estrutura de Dados e Algoritmos da FGA UnB
+# Estrutura de Dados e Algoritmos - UnB FGA
+O objetivo deste repositório é de armazenar conteúdos, códigos, exercícios e trabalhos referente a matéria de Estrutura de Dados e Algoritmos do 4° Semestre do curso de Engenharia de Software da Universidade de Brasília, sendo referente ao meu desempenho.
 
-Aqui é possível encontrar exercícios realizados durante a disciplina, além de alguns códigos criados para entender conteúdos chaves na pasta Aprendizados.
+Além disso, o repositório também visa contar com o conhecimento de Estrutura de Dados e Algoritmos em outras linguagens que eu venha precisar estudar, já que a disciplina foi realizada com o uso da Linguagem C. Portanto, também será possível encontrar códigos em linguagens como Python.
