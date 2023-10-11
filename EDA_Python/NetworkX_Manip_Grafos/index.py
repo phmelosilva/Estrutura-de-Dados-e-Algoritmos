@@ -41,6 +41,11 @@ print(G['v3'])
 print(G['v4'])
 print(G['v5'])
 
+# Obtém a matriz de adjacências do grafo G
+print('Matriz de adjacências de G')
+A = nx.adjacency_matrix(G)  # retorna uma matriz esparsa para economizar memória
+print(A.todense())  # converte para matriz densa (padrão)
+
 # Adiciona um campo peso em cada aresta do grafo
 G['v1']['v2']['peso'] = 5
 G['v2']['v3']['peso'] = 10
